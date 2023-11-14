@@ -3141,7 +3141,16 @@
                             <font>Tiny</font>
                             <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                             <label>$INFO[PVR.EpgEventElapsedTime, •   ,]  /  $INFO[PVR.EpgEventDuration]</label>
-                            <visible>VideoPlayer.Content(LiveTV)</visible>
+                            <visible>VideoPlayer.Content(LiveTV) + !Pvr.IsTimeShift</visible>
+                        </control>
+                        <control type="label" description="Total Time">
+                            <width>auto</width>
+                            <align>right</align>
+                            <height>40</height>
+                            <font>Tiny</font>
+                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                            <label>$INFO[PVR.EpgEventElapsedTime, •   ,] $INFO[PVR.TimeshiftOffset, (-,)]  /  $INFO[PVR.EpgEventDuration]</label>
+                            <visible>VideoPlayer.Content(LiveTV) + Pvr.IsTimeShift</visible>
                         </control>
                     </control>
                     <include>ProgressBar</include>
